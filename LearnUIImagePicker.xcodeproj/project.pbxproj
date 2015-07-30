@@ -94,12 +94,12 @@
 				B7EC8C241B640F29002063B0 /* AppDelegate.swift */,
 				B7EC8C261B640F29002063B0 /* MemeEditorViewController.swift */,
 				B7EC8C491B65646F002063B0 /* MemeCollectionViewController.swift */,
+				B72376461B69ABBA0011519A /* MemeDetailViewController.swift */,
 				B7EC8C4B1B66FA67002063B0 /* MemeTableViewController.swift */,
 				B7EC8C281B640F29002063B0 /* Main.storyboard */,
 				B7EC8C2B1B640F29002063B0 /* Images.xcassets */,
 				B7EC8C2D1B640F29002063B0 /* LaunchScreen.xib */,
 				B7EC8C221B640F29002063B0 /* Supporting Files */,
-				B72376461B69ABBA0011519A /* MemeDetailViewController.swift */,
 			);
 			path = LearnUIImagePicker;
 			sourceTree = "<group>";

@@ -220,9 +220,6 @@
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="customSize" width="100" height="100"/>
-                                <connections>
-                                    <segue destination="UH2-RA-5MQ" kind="show" identifier="collectionViewShowDetailSegue" id="grW-8t-Cti"/>
-                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -237,6 +234,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="UH2-RA-5MQ" kind="show" identifier="collectionViewShowDetailSegue" id="To4-XD-ymw"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4C-nK-sE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -245,7 +245,7 @@
         <!--Meme Detail View Controller-->
         <scene sceneID="iLS-yL-6W1">
             <objects>
-                <viewController id="UH2-RA-5MQ" customClass="MemeDetailViewController" customModule="LearnUIImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="memeDetailView" id="UH2-RA-5MQ" customClass="MemeDetailViewController" customModule="LearnUIImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="ZdI-ca-sgZ"/>
                         <viewControllerLayoutGuide type="bottom" id="zLM-5B-ixs"/>
@@ -390,6 +390,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="grW-8t-Cti"/>
+        <segue reference="To4-XD-ymw"/>
     </inferredMetricsTieBreakers>
 </document>
