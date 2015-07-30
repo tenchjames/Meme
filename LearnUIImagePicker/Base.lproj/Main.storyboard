@@ -220,6 +220,9 @@
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <size key="customSize" width="100" height="100"/>
+                                <connections>
+                                    <segue destination="UH2-RA-5MQ" kind="show" identifier="collectionViewShowDetailSegue" id="grW-8t-Cti"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -238,6 +241,38 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4C-nK-sE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2243" y="513"/>
+        </scene>
+        <!--Meme Detail View Controller-->
+        <scene sceneID="iLS-yL-6W1">
+            <objects>
+                <viewController id="UH2-RA-5MQ" customClass="MemeDetailViewController" customModule="LearnUIImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ZdI-ca-sgZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="zLM-5B-ixs"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="ORA-X8-qgH">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZE4-Tv-GvJ">
+                                <rect key="frame" x="0.0" y="72" width="600" height="471"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ZE4-Tv-GvJ" firstAttribute="top" secondItem="ZdI-ca-sgZ" secondAttribute="bottom" constant="8" id="FNc-Qp-Hfi"/>
+                            <constraint firstItem="ZE4-Tv-GvJ" firstAttribute="leading" secondItem="ORA-X8-qgH" secondAttribute="leading" id="G25-11-VpT"/>
+                            <constraint firstItem="zLM-5B-ixs" firstAttribute="top" secondItem="ZE4-Tv-GvJ" secondAttribute="bottom" constant="8" id="fER-LT-3l3"/>
+                            <constraint firstAttribute="trailing" secondItem="ZE4-Tv-GvJ" secondAttribute="trailing" id="vwm-SS-dHX"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="memeImageView" destination="ZE4-Tv-GvJ" id="z4U-wD-Dls"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7JD-bz-EQe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3094" y="158"/>
         </scene>
         <!--Meme Table View Controller-->
         <scene sceneID="fvi-QX-2ih">
@@ -332,6 +367,7 @@
                                     <outlet property="bottomTextLabel" destination="t6F-i6-jQG" id="sev-SV-8r5"/>
                                     <outlet property="memeImageView" destination="RRA-Vy-8ey" id="55v-o1-cPI"/>
                                     <outlet property="topTextLabel" destination="DLf-ms-yv6" id="F0z-i2-aaE"/>
+                                    <segue destination="UH2-RA-5MQ" kind="show" identifier="tableViewShowDetailSegue" id="gRv-Ot-BgW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -353,4 +389,7 @@
             <point key="canvasLocation" x="2243" y="-156"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="grW-8t-Cti"/>
+    </inferredMetricsTieBreakers>
 </document>

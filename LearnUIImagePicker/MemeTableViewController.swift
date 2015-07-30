@@ -97,15 +97,15 @@ class MemeTableViewController: UITableViewController {
     */
 
     // MARK: - Navigation
-    /*
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "newMemeSegue" {
-            let controller = self.storyboard?.instantiateViewControllerWithIdentifier("memeEditorController") as! MemeEditorViewController
-            self.presentViewController(controller, animated: true, completion: nil)
+        if segue.identifier == "tableViewShowDetailSegue" {
+            if let indexPath = tableView.indexPathForSelectedRow() {
+                let meme = memes[indexPath.row]
+                (segue.destinationViewController as! MemeDetailViewController).memeImage = meme.memedImage
+            }
         }
     }
-    */
     
     @IBAction func launchNewMemeEditor(sender: AnyObject) {
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("memeEditorController") as! MemeEditorViewController

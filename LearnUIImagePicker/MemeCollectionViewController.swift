@@ -41,17 +41,21 @@ class MemeCollectionViewController: UICollectionViewController {
         self.presentViewController(controller, animated: true, completion: nil)
     }
     
-    
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using [segue destinationViewController].
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "collectionViewShowDetailSegue" {
+            let selectedCell = sender as! MemeDetailCollectionViewCell
+            if let indexPath = collectionView?.indexPathForCell(selectedCell) {
+                let meme = memes[indexPath.row]
+                
+                (segue.destinationViewController as! MemeDetailViewController).memeImage = meme.memedImage
+            }
+        }
     }
-    */
-
+    
+    
     // MARK: UICollectionViewDataSource
 
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
