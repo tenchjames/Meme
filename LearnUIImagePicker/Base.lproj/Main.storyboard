@@ -6,10 +6,10 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Meme View Controller-->
+        <!--Meme Editor View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="MemeViewController" customModule="LearnUIImagePicker" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="memeEditorController" id="vXZ-lx-hvc" customClass="MemeEditorViewController" customModule="LearnUIImagePicker" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -140,7 +140,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2921" y="163"/>
+            <point key="canvasLocation" x="2121" y="1204"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="3W0-A8-yxT">
@@ -207,32 +207,19 @@
                             <size key="itemSize" width="50" height="50"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            <inset key="sectionInset" minX="10" minY="10" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="collectionViewCell" id="ThZ-w1-6AN" customClass="MemeDetailCollectionViewCell" customModule="LearnUIImagePicker" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                     <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8a1-iI-QE3">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        </imageView>
-                                    </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstItem="8a1-iI-QE3" firstAttribute="top" secondItem="ThZ-w1-6AN" secondAttribute="top" id="6fg-Y0-iq2"/>
-                                    <constraint firstAttribute="bottom" secondItem="8a1-iI-QE3" secondAttribute="bottom" id="COM-3o-fWQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="8a1-iI-QE3" secondAttribute="trailing" id="YQC-a7-bhn"/>
-                                    <constraint firstItem="8a1-iI-QE3" firstAttribute="leading" secondItem="ThZ-w1-6AN" secondAttribute="leading" id="kZj-gt-Wpb"/>
-                                </constraints>
-                                <connections>
-                                    <outlet property="memeImage" destination="8a1-iI-QE3" id="ZIH-C6-lkL"/>
-                                </connections>
+                                <size key="customSize" width="100" height="100"/>
                             </collectionViewCell>
                         </cells>
                         <connections>
@@ -243,14 +230,14 @@
                     <navigationItem key="navigationItem" id="oYf-gw-i4z">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wjD-GS-3fs">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="presentation" identifier="collectionViewNewMemeSegue" id="PwB-g8-Kw3"/>
+                                <action selector="launchNewMemeEditor:" destination="Dyf-Om-Hiz" id="asf-uC-W9Y"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q4C-nK-sE6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="515"/>
+            <point key="canvasLocation" x="2243" y="513"/>
         </scene>
         <!--Meme Table View Controller-->
         <scene sceneID="fvi-QX-2ih">
@@ -356,17 +343,14 @@
                     <navigationItem key="navigationItem" id="be8-ur-3Oj">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="o3P-Th-ynl">
                             <connections>
-                                <segue destination="vXZ-lx-hvc" kind="presentation" identifier="tableViewNewMemeSegue" id="WWi-e2-fvi"/>
+                                <action selector="launchNewMemeEditor:" destination="6Md-t5-CE2" id="L4p-O6-wRq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B3D-Aj-CEx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2121" y="-132"/>
+            <point key="canvasLocation" x="2243" y="-156"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="PwB-g8-Kw3"/>
-    </inferredMetricsTieBreakers>
 </document>

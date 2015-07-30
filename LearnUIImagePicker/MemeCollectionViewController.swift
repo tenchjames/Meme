@@ -14,10 +14,16 @@ class MemeCollectionViewController: UICollectionViewController {
 
     var memes: [Meme]!
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
         let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
         memes = applicationDelegate.memes
+        self.collectionView?.reloadData()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
 
         // Register cell classes
         self.collectionView!.registerClass(MemeDetailCollectionViewCell.self, forCellWithReuseIdentifier: "collectionViewCell")
@@ -30,6 +36,12 @@ class MemeCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    @IBAction func launchNewMemeEditor(sender: AnyObject) {
+        let controller = self.storyboard?.instantiateViewControllerWithIdentifier("memeEditorController") as! MemeEditorViewController
+        self.presentViewController(controller, animated: true, completion: nil)
+    }
+    
+    
     /*
     // MARK: - Navigation
 
@@ -57,9 +69,12 @@ class MemeCollectionViewController: UICollectionViewController {
         // Configure the cell
         let currentMeme = memes[indexPath.row]
         
-        cell.memeImage.image = currentMeme.memedImage
-        println(currentMeme.bottomText)
+        cell.memeImageView.image = currentMeme.memedImage
         return cell
+    }
+    
+    override func collectionView(collectionView: UICollectionView, willDisplayCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        cell.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
     }
 
     // MARK: UICollectionViewDelegate

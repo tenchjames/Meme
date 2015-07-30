@@ -9,14 +9,13 @@
 import UIKit
 
 class MemeDetailCollectionViewCell: UICollectionViewCell {
-    @IBOutlet weak var memeImage: UIImageView!
+    var memeImageView: UIImageView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        
-        memeImage = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
-        memeImage.contentMode = UIViewContentMode.ScaleAspectFill
-        contentView.addSubview(memeImage)
+        memeImageView = UIImageView(frame: CGRect(x: 0, y: 0, width: frame.size.width, height: frame.size.height))
+        memeImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        contentView.addSubview(memeImageView)
     }
 
     required init(coder aDecoder: NSCoder) {
