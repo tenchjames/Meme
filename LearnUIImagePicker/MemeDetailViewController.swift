@@ -16,7 +16,11 @@ class MemeDetailViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-
+        self.tabBarController?.tabBar.hidden = true
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        self.tabBarController?.tabBar.hidden = false
     }
 
     override func viewDidLoad() {
@@ -43,7 +47,6 @@ class MemeDetailViewController: UIViewController {
             applicationDelegate.memes.removeAtIndex(index)
             self.navigationController?.popViewControllerAnimated(true)
         }
-        
     }
     
 
