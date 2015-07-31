@@ -10,20 +10,40 @@ import UIKit
 
 class MemeDetailViewController: UIViewController {
     @IBOutlet weak var memeImageView: UIImageView!
+    
+    var memes: [Meme]!
+    var memeIndex: Int?
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
 
-    var memeImage: UIImage!
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        memes = applicationDelegate.memes
+        if let index = memeIndex {
+            let meme = memes[index]
+            memeImageView.image = meme.memedImage
+            let deleteIcon = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.Trash, target: self, action: "deleteMemeAtIndex")
+            self.navigationItem.rightBarButtonItem = deleteIcon
+        } 
         
-        // expececting an image passed
-        if let memeImage = memeImage {
-            memeImageView.image = memeImage
-        }
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func deleteMemeAtIndex() {
+        let applicationDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
+        if let index = memeIndex {
+            applicationDelegate.memes.removeAtIndex(index)
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        
     }
     
 

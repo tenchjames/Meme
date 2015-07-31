@@ -43,16 +43,6 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
 
     // MARK: - Navigation
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "collectionViewShowDetailSegue" {
-            let selectedCell = sender as! MemeDetailCollectionViewCell
-            if let indexPath = collectionView?.indexPathForCell(selectedCell) {
-                let meme = memes[indexPath.row]
-                
-                (segue.destinationViewController as! MemeDetailViewController).memeImage = meme.memedImage
-            }
-        }
-    }
 
     // MARK: UICollectionViewDataSource
 
@@ -78,9 +68,8 @@ class MemeCollectionViewController: UICollectionViewController, UICollectionView
     // MARK: UICollectionViewDelegate
     // programatically performing segue to detail view
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let meme = memes[indexPath.row]
         let controller = self.storyboard?.instantiateViewControllerWithIdentifier("memeDetailView") as! MemeDetailViewController
-        controller.memeImage = meme.memedImage
+        controller.memeIndex = indexPath.row
         self.navigationController?.pushViewController(controller, animated: true)
     }
     
